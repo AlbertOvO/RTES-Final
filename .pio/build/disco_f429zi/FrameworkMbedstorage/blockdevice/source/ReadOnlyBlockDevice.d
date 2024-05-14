@@ -1,0 +1,28 @@
+.pio/build/disco_f429zi/FrameworkMbedstorage/blockdevice/source/ReadOnlyBlockDevice.o: \
+ /Users/albert/.platformio/packages/framework-mbed/storage/blockdevice/source/ReadOnlyBlockDevice.cpp \
+ .pio/build/disco_f429zi/mbed_config.h \
+ /Users/albert/.platformio/packages/framework-mbed/storage/blockdevice/include/blockdevice/ReadOnlyBlockDevice.h \
+ /Users/albert/.platformio/packages/framework-mbed/storage/blockdevice/include/blockdevice/BlockDevice.h \
+ /Users/albert/.platformio/packages/framework-mbed/platform/include/platform/PlatformMutex.h \
+ /Users/albert/.platformio/packages/framework-mbed/platform/include/platform/NonCopyable.h \
+ /Users/albert/.platformio/packages/framework-mbed/rtos/include/rtos/Mutex.h \
+ /Users/albert/.platformio/packages/framework-mbed/rtos/include/rtos/mbed_rtos_types.h \
+ /Users/albert/.platformio/packages/framework-mbed/cmsis/CMSIS_5/CMSIS/RTOS2/Include/cmsis_os2.h \
+ /Users/albert/.platformio/packages/framework-mbed/rtos/include/rtos/internal/mbed_rtos1_types.h \
+ /Users/albert/.platformio/packages/framework-mbed/cmsis/CMSIS_5/CMSIS/RTOS2/RTX/Include1/cmsis_os.h \
+ /Users/albert/.platformio/packages/framework-mbed/cmsis/CMSIS_5/CMSIS/RTOS2/RTX/Include/rtx_os.h \
+ /Users/albert/.platformio/packages/framework-mbed/cmsis/CMSIS_5/CMSIS/RTOS2/RTX/Include/rtx_def.h \
+ /Users/albert/.platformio/packages/framework-mbed/cmsis/device/RTE/include/RTE_Components.h \
+ /Users/albert/.platformio/packages/framework-mbed/cmsis/device/rtos/include/mbed_rtx_conf.h \
+ /Users/albert/.platformio/packages/framework-mbed/targets/TARGET_STM/mbed_rtx.h \
+ /Users/albert/.platformio/packages/framework-mbed/cmsis/device/mbed_cmsis_conf.h \
+ /Users/albert/.platformio/packages/framework-mbed/cmsis/CMSIS_5/CMSIS/RTOS2/RTX/Config/RTX_Config.h \
+ /Users/albert/.platformio/packages/framework-mbed/rtos/include/rtos/internal/mbed_rtos_storage.h \
+ /Users/albert/.platformio/packages/framework-mbed/cmsis/device/rtos/include/mbed_rtx_storage.h \
+ /Users/albert/.platformio/packages/framework-mbed/cmsis/device/rtos/include/mbed_rtx_conf.h \
+ /Users/albert/.platformio/packages/framework-mbed/rtos/include/rtos/Kernel.h \
+ /Users/albert/.platformio/packages/framework-mbed/platform/include/platform/mbed_toolchain.h \
+ /Users/albert/.platformio/packages/framework-mbed/platform/include/platform/mbed_preprocessor.h \
+ /Users/albert/.platformio/packages/framework-mbed/platform/include/platform/ScopedLock.h \
+ /Users/albert/.platformio/packages/framework-mbed/platform/include/platform/mbed_error.h \
+ /Users/albert/.platformio/packages/framework-mbed/platform/include/platform/mbed_retarget.h
