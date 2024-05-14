@@ -23,8 +23,8 @@
 #define MIN_GYRO -500
 
 // Constants for tremor detection
-#define BUFFER_SIZE 256  // Number of samples for FFT
-#define SAMPLE_RATE 100  // Sampling rate in Hz
+#define BUFFER_SIZE 36 // Number of samples for FFT
+#define SAMPLE_RATE 10  // Sampling rate in Hz
 #define TREMOR_THRESHOLD 10.0f  // Example threshold for tremor detection
 #define SERIOUS_TREMOR_THRESHOLD 20.0f  // Threshold for serious tremor
 #define MIN_DURATION 3.0  // Minimum duration in seconds to confirm a tremor
