@@ -26,6 +26,9 @@ LCD_DISCO_F429ZI lcd;
 #define SPI_FLAG 1
 #define DATA_FLAG 2
 
+#define SAMPLES 256 // Number of samples for FFT
+#define SAMPLING_RATE 100 // Sampling rate in Hz
+
 EventFlags eventFlags;
 
 void spiCallback(int event) {
@@ -91,6 +94,13 @@ void displayTremorLevel(float tremorLevel) {
     lcd.DisplayStringAt(0, LINE(7), (uint8_t *)buffer, CENTER_MODE);
 }
 
+void analyzeFrequencySpectrum(float *data, float *output, uint32_t length) {
+    arm_rfft_fast_instance_f32 fftInstance;
+    arm_rfft_fast_init_f32(&fftInstance, length);
+    arm_rfft_fast_f32(&fftInstance, data, output, 0);
+    arm_cmplx_mag_f32(output, data, length / 2);
+}
+
 int main() {
     // Initialize the serial port for debugging
     pc.set_baud(9600);
@@ -110,6 +120,10 @@ int main() {
     printf("Gyroscope initialization complete.\n");
 
     float x = 0, y = 0, z = 0;
+    float gyroData[SAMPLES] = {0};
+    float fftOutput[SAMPLES] = {0};
+    int sampleIndex = 0;
+
     while (true) {
         fetchGyroData(spiDevice, x, y, z);
         printf("Gyro data: x=%f, y=%f, z=%f\n", x, y, z);
@@ -117,6 +131,29 @@ int main() {
         float tremorLevel = (fabs(x) + fabs(y) + fabs(z)) / 3.0f;
         displayTremorLevel(tremorLevel);
 
-        ThisThread::sleep_for(500ms);
+        // Store the tremor level for FFT analysis
+        gyroData[sampleIndex++] = tremorLevel;
+
+        if (sampleIndex >= SAMPLES) {
+            analyzeFrequencySpectrum(gyroData, fftOutput, SAMPLES);
+            sampleIndex = 0;
+
+            // Display the dominant frequency
+            float maxFrequency = 0.0f;
+            uint32_t maxIndex = 0;
+            for (uint32_t i = 1; i < SAMPLES / 2; i++) {
+                if (fftOutput[i] > maxFrequency) {
+                    maxFrequency = fftOutput[i];
+                    maxIndex = i;
+                }
+            }
+
+            float dominantFrequency = (float)maxIndex * SAMPLING_RATE / SAMPLES;
+            char buffer[32];
+            sprintf(buffer, "Dominant Freq: %.2f Hz", dominantFrequency);
+            lcd.DisplayStringAt(0, LINE(9), (uint8_t *)buffer, CENTER_MODE);
+        }
+
+        ThisThread::sleep_for(1000ms / SAMPLING_RATE);
     }
 }
