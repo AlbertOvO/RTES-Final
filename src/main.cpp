@@ -1,9 +1,10 @@
 // Embedded Challenge
+// Youtube video link: https://youtu.be/yd1xXl1Cz9I
 // Team memembers:
-// Haonan li (hl4798)
-// Jiawei he (jh8824)
-// devaKUMAR KATTA (dK4945)
-// Abdul samad zaheer khan (ak9943)
+// Haonan Li (hl4798)
+// Jiawei He (jh8824)
+// Devakumar Katta (dK4945)
+// Abdul Samad Zaheer Khan (ak9943)
 
 #include "mbed.h"
 #include "drivers/LCD_DISCO_F429ZI.h"
@@ -114,9 +115,12 @@ int main() {
         fetchGyroData(spiDevice, x, y, z);
         printf("Gyro data: x=%f, y=%f, z=%f\n", x, y, z);
 
-        float tremorLevel = (fabs(x) + fabs(y) + fabs(z)) / 3.0f;
+        // float tremorLevel = (fabs(x) + fabs(y) + fabs(z)) / 3.0f;
+        float tremorLevel = (fabs(x) + fabs(y) + fabs(z)) / 1.0f;
+        // float tremorLevel = (fabs(x) + fabs(z)) / 2.0f;
         displayTremorLevel(tremorLevel);
 
-        ThisThread::sleep_for(500ms);
+        // ThisThread::sleep_for(500ms);
+        ThisThread::sleep_for(150ms);
     }
 }
