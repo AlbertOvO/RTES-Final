@@ -1,2 +1,2 @@
-# RTES-Final
- RTES final challenge
+# rtes_challenge
+ Parkinson Tremor Detector
